@@ -23,22 +23,28 @@
     var CONFIG = {"hostname":"iluis.gitee.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="依赖注入">
+  <meta name="description" content="两种方式实现全局播放背景音乐">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9. 依赖注入">
-<meta property="og:url" content="https://iluis.gitee.io/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:title" content="Hexo + Next 主题实现全局播放背景音乐">
+<meta property="og:url" content="https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/index.html">
 <meta property="og:site_name" content="iluis">
-<meta property="og:description" content="依赖注入">
+<meta property="og:description" content="两种方式实现全局播放背景音乐">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200402151951372.png">
-<meta property="article:published_time" content="2020-04-03T03:46:31.000Z">
-<meta property="article:modified_time" content="2020-04-07T06:14:15.926Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409024747754.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409024829980.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409024949613.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409025032376.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409025115529.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200409025115529.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020040902523955.png">
+<meta property="article:published_time" content="2020-04-08T17:56:35.000Z">
+<meta property="article:modified_time" content="2020-04-08T18:57:26.511Z">
 <meta property="article:author" content="iluis">
-<meta property="article:tag" content="Spring IOC">
+<meta property="article:tag" content="Hexo 音乐">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200402151951372.png">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200409024747754.png">
 
-<link rel="canonical" href="https://iluis.gitee.io/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+<link rel="canonical" href="https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/">
 
 
 <script id="page-configurations">
@@ -51,7 +57,7 @@
   };
 </script>
 
-  <title>9. 依赖注入 | iluis</title>
+  <title>Hexo + Next 主题实现全局播放背景音乐 | iluis</title>
   
 
 
@@ -213,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iluis.gitee.io/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+    <link itemprop="mainEntityOfPage" href="https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,40 +232,38 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          9. 依赖注入
+          Hexo + Next 主题实现全局播放背景音乐
         </h1>
 
         <div class="post-meta">
 
           <!--设置置顶标志-->
           
+            <i class="fa fa-thumb-tack"></i>
+            <font color=7D26CD>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-04-03 11:46:31" itemprop="dateCreated datePublished" datetime="2020-04-03T11:46:31+08:00">2020-04-03</time>
+              <time title="创建时间：2020-04-09 01:56:35 / 修改时间：02:57:26" itemprop="dateCreated datePublished" datetime="2020-04-09T01:56:35+08:00">2020-04-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-07 14:14:15" itemprop="dateModified" datetime="2020-04-07T14:14:15+08:00">2020-04-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" class="post-meta-item leancloud_visitors" data-flag-title="9. 依赖注入" title="热度">
+            <span id="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo + Next 主题实现全局播放背景音乐" title="热度">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -282,8 +286,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -293,14 +297,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>300</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -312,36 +316,111 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><a id="more"></a>
+        <div align="center"><h2>
+    两种方式实现全局播放背景音乐
+    </h2></div>
 
-<p>依赖注入： <code>Dependency Injection</code></p>
-<p>IOC作用：  降低程序间的耦合（依赖关系）</p>
-<p> 依赖关系的管理：以后都交给spring来维护</p>
-<blockquote>
-<p>在当前类需要用到其它类的对象，由spring为我们提供，我们只需要在配置文件中说明</p>
-</blockquote>
-<p>依赖关系的维护：就叫做依赖注入</p>
-<h3 id="注入方式"><a href="#注入方式" class="headerlink" title="注入方式"></a>注入方式</h3><p>有三种：</p>
-<ol>
-<li>使用构造函数提供</li>
-<li>使用set方法提供       </li>
-<li>使用注解提供</li>
-</ol>
-<h3 id="能注入的数据"><a href="#能注入的数据" class="headerlink" title="能注入的数据"></a>能注入的数据</h3><p>有三类：</p>
-<ol>
-<li><p>基本类型和String</p>
-</li>
-<li><p>其它bean类型{在配置文件中或者注解配置过的bean}<br>如引用配置文件中的日期对象：<code>ref=“日期对象的bean的id”</code></p>
-</li>
-<li><p>复杂类型（集合类型）</p>
+<a id="more"></a>
+
+<h2 id="第一种方式：使用网易云音乐插件"><a href="#第一种方式：使用网易云音乐插件" class="headerlink" title="第一种方式：使用网易云音乐插件"></a>第一种方式：使用网易云音乐插件</h2><p>此种方式特点：</p>
 <ul>
-<li>需要借助其他标签实现</li>
-<li>只能通过构造方法或set方法注入</li>
+<li>十分方便快捷</li>
+<li>有版权保护的歌无法播放</li>
 </ul>
+<h3 id="1-生成网易云歌单插件"><a href="#1-生成网易云歌单插件" class="headerlink" title="1. 生成网易云歌单插件"></a>1. 生成网易云歌单插件</h3><p>为什么要创建歌单外链而不是创建歌曲外链：以后添加或者删除歌曲不用修改代码，直接在网易云歌单中操作即可。</p>
+<h5 id="步骤一：创建歌单并添加自己喜爱的歌曲"><a href="#步骤一：创建歌单并添加自己喜爱的歌曲" class="headerlink" title="步骤一：创建歌单并添加自己喜爱的歌曲"></a>步骤一：创建歌单并添加自己喜爱的歌曲</h5><blockquote>
+<p>小贴士：若我们的歌单中添加了受网易云版权保护的歌，在博客中我们的歌单就GG了，要避免添加此类歌曲。（第二种方式会很好的解决这种情况）</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200409024747754.png" alt="image-20200409010056894"></p>
+<h4 id="步骤二：获取歌单外链"><a href="#步骤二：获取歌单外链" class="headerlink" title="步骤二：获取歌单外链"></a>步骤二：获取歌单外链</h4><ul>
+<li><strong>打开网易云音乐网页版，登录后点击我的音乐，点击分享。</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200409024829980.png" alt></p>
+<ul>
+<li><strong>分享成功后，点击朋友，点击动态。</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200409024949613.png" alt="image-20200409004114685"></p>
+<ul>
+<li><strong>找到我们刚才分享的歌单</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200409025032376.png" alt="image-20200409004240487"></p>
+<h4 id="步骤三：创建网易云插件"><a href="#步骤三：创建网易云插件" class="headerlink" title="步骤三：创建网易云插件"></a>步骤三：创建网易云插件</h4><p><strong>找到生成外链播放器，点击进入。</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200409025115529.png" alt="image-20200409004421801"></p>
+<ul>
+<li><strong>在这里我们可以设置网易云插件的尺寸，以及设置是否自动播放：<code>auto=1</code>是播放，0是不自动播放。</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200409025115529.png" alt="image-20200409004520358"></p>
+<ul>
+<li><strong>点击复制代码，然后就可以将代码放到我们的博客中。</strong></li>
+</ul>
+<h3 id="2-将网易云插件添加到博客"><a href="#2-将网易云插件添加到博客" class="headerlink" title="2. 将网易云插件添加到博客"></a>2. 将网易云插件添加到博客</h3><p>我们可以将此插件添加到博客界面，或者博客文章之中（直接粘贴网易云插件代码即可）。</p>
+<p><strong>在此我们举例将音乐插件添加到侧边栏。</strong></p>
+<ul>
+<li>打开我们主题文件：<code>themes\next\layout\_macro\sidebar.swig</code>找到<code>sidebar-inner</code>，将我们刚刚复制的代码粘贴到此<code>&lt;div&gt;</code>标签后即可。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar-inner"</span>&gt;</span><br><span class="line">      &lt;!--网易云插件--&gt;</span><br><span class="line">      &lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=<span class="number">330</span> height=<span class="number">86</span> src=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=463352828&amp;auto=0&amp;height=66"</span>&gt;&lt;<span class="regexp">/iframe&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在博客文件夹打开<code>GitBash</code>执行<code>hexo  clean</code>、<code>hexo g</code>、<code>hexo s</code>，即可看到效果。</li>
+</ul>
+<p>效果图：</p>
+<p><img src="https://img-blog.csdnimg.cn/2020040902523955.png" alt="image-20200409012920088"></p>
+<h2 id="第二种方式：使用Aplayer插件添加背景音乐"><a href="#第二种方式：使用Aplayer插件添加背景音乐" class="headerlink" title="第二种方式：使用Aplayer插件添加背景音乐"></a>第二种方式：使用Aplayer插件添加背景音乐</h2><p>特点：可以播放大部分歌曲</p>
+<p><strong>在此我们举例将音乐插件添加到侧边栏。</strong></p>
+<ul>
+<li>打开我们主题文件：<code>themes\next\layout\_macro\sidebar.swig</code>找到<code>sidebar-inner</code>，复制下面代码粘贴到此<code>&lt;div&gt;</code>标签后即可。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar-inner"</span>&gt;</span><br><span class="line">    &lt;!-- <span class="built_in">require</span> APlayer --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;!-- require MetingJS--&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>npm/meting@<span class="number">1.2</span>/dist/Meting.min.js<span class="string">"&gt;&lt;/script&gt; </span></span><br><span class="line"><span class="string">    &lt;!--网易云--&gt;   </span></span><br><span class="line"><span class="string">    &lt;meting-js</span></span><br><span class="line"><span class="string">	    server="</span>netease<span class="string">"</span></span><br><span class="line"><span class="string">	    type="</span>playlist<span class="string">" </span></span><br><span class="line"><span class="string">		mini="</span><span class="literal">false</span><span class="string">"</span></span><br><span class="line"><span class="string">      	list-folded="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">      	mutex="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">	    id="</span><span class="number">4916164702</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;/meting-js&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>属性</strong></p>
+<ul>
+<li>sever：服务器，填写网易云</li>
+<li>type：播放列表</li>
+<li>mini：mini模式</li>
+<li>list-folded：展开播放别表</li>
+<li>mutex：避免多个插件同时播放</li>
+<li>id：网易云歌单id，打开我们的歌单，网址最后一串数字就是。</li>
+</ul>
+<p>例如：<code>https://music.163.com/#/my/m/music/playlist?id=4916164702</code></p>
+<blockquote>
+<p>具体属性请参照文末<code>MetingJS</code></p>
+</blockquote>
+<ul>
+<li>添加QQ音乐歌曲则简单很多,将<code>meting-js</code>换成下面即可。 <code>auto</code>后为歌单网址。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meting-js   	  auto=<span class="string">"https://y.qq.com/n/yqq/playlist/1790504159.html#stat=y_new.playlist.pic_click"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/meting-js&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实现背景音乐全局播放：pajx"><a href="#实现背景音乐全局播放：pajx" class="headerlink" title="实现背景音乐全局播放：pajx"></a>实现背景音乐全局播放：<code>pajx</code></h2><p>即实现页面跳转刷新后音乐不间断播放</p>
+<ul>
+<li><p>打开<code>themes\next\layout</code>文件夹找到<code>_layout.swig</code></p>
 </li>
-</ol>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>若是经常变化的数据，并不适用于构造函数注入的方式</p>
-<p><img src="https://img-blog.csdnimg.cn/20200402151951372.png" alt="在这里插入图片描述"></p>
+<li><p>在<code>&lt;\head&gt;</code>标签前添加下面代码，并保存。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;!--pjax：防止跳转页面音乐暂停--&gt;</span><br><span class="line">  &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"</span>&gt;&lt;<span class="regexp">/script&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在主题的配置文件中找到<code>pajx</code>，将它设置为<code>true</code>，并保存。</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Easily enable fast Ajax navigation on your website.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在博客文件夹打开<code>GitBash</code>执行<code>hexo  clean</code>、<code>hexo g</code>、<code>hexo s</code>，跳转页面时即可看到效果。</li>
+</ul>
+<blockquote>
+<p>经测试，在博客文章中的网易云插件无法实现全局播放。</p>
+</blockquote>
+<p><strong>本文参考（鸣谢）</strong></p>
+<ul>
+<li><code>Aplay</code>操作手册(中文版)：<a href="https://aplayer.js.org/#/zh-Hans/" target="_blank" rel="noopener">https://aplayer.js.org/#/zh-Hans/</a></li>
+<li>Pjax：<a href="https://github.com/theme-next/theme-next-pjax" target="_blank" rel="noopener">https://github.com/theme-next/theme-next-pjax</a></li>
+<li>MetingJS：<a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener">https://github.com/metowolf/MetingJS</a></li>
+<li>Sourc0d：<a href="https://blog.csdn.net/yjwan521/article/details/80899992" target="_blank" rel="noopener">https://blog.csdn.net/yjwan521/article/details/80899992</a></li>
+<li>惶心：<a href="https://cloud.tencent.com/developer/article/1157669" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1157669</a></li>
+</ul>
 
     </div>
 
@@ -358,12 +437,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">9. 依赖注入</a></p>
+  <p><span>本文标题:</span><a href="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/">Hexo + Next 主题实现全局播放背景音乐</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 iluis 的个人博客">iluis</a></p>
-  <p><span>发布时间:</span>2020年04月03日 - 11:04</p>
-  <p><span>最后更新:</span>2020年04月07日 - 14:04</p>
-  <p><span>原始链接:</span><a href="/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" title="9. 依赖注入">https://iluis.gitee.io/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://iluis.gitee.io/2020/04/03/9.%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年04月09日 - 01:04</p>
+  <p><span>最后更新:</span>2020年04月09日 - 02:04</p>
+  <p><span>原始链接:</span><a href="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/" title="Hexo + Next 主题实现全局播放背景音乐">https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -387,7 +466,7 @@
       <footer class="post-footer">
           <div class="post-tags">
                <!-- 修改标签样式 -->
-              <a href="/tags/Spring-IOC/" rel="tag"><i class="fa fa-tag"></i> Spring IOC</a>
+              <a href="/tags/Hexo-%E9%9F%B3%E4%B9%90/" rel="tag"><i class="fa fa-tag"></i> Hexo 音乐</a>
           </div>
 
         
@@ -396,13 +475,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/03/8.bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="prev" title="8. bean的生命周期">
-      <i class="fa fa-chevron-left"></i> 8. bean的生命周期
+    <a href="/2020/04/06/3.%20Hexo%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/" rel="prev" title="Hexo绑定自定义域名">
+      <i class="fa fa-chevron-left"></i> Hexo绑定自定义域名
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/03/10.%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%A8%E5%85%A5/" rel="next" title="10. 构造函数注入">
-      10. 构造函数注入 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -477,7 +553,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入"><span class="nav-number">1.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注入方式"><span class="nav-number">1.1.</span> <span class="nav-text">注入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能注入的数据"><span class="nav-number">1.2.</span> <span class="nav-text">能注入的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">
+    两种方式实现全局播放背景音乐
+    </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种方式：使用网易云音乐插件"><span class="nav-number">2.</span> <span class="nav-text">第一种方式：使用网易云音乐插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生成网易云歌单插件"><span class="nav-number">2.1.</span> <span class="nav-text">1. 生成网易云歌单插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤一：创建歌单并添加自己喜爱的歌曲"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">步骤一：创建歌单并添加自己喜爱的歌曲</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤二：获取歌单外链"><span class="nav-number">2.1.1.</span> <span class="nav-text">步骤二：获取歌单外链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤三：创建网易云插件"><span class="nav-number">2.1.2.</span> <span class="nav-text">步骤三：创建网易云插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-将网易云插件添加到博客"><span class="nav-number">2.2.</span> <span class="nav-text">2. 将网易云插件添加到博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种方式：使用Aplayer插件添加背景音乐"><span class="nav-number">3.</span> <span class="nav-text">第二种方式：使用Aplayer插件添加背景音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现背景音乐全局播放：pajx"><span class="nav-number">4.</span> <span class="nav-text">实现背景音乐全局播放：pajx</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

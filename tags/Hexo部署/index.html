@@ -101,17 +101,16 @@
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
 
-    
     <!--
     音频播放 : 具体属性请查看：https://aplayer.js.org/#/zh-Hans/
     <div class="aplayer" 
-      data-id="165747266"  
+      data-id="4916164702"  
       data-server="netease" 
       data-type="playlist" 
       data-fixed="true" 
       data-autoplay="false" 
       data-order="list" 
-      data-volume="0.4" 
+      data-volume="0.3" 
       data-theme="#FADFA3" 
       date-preload="auto" > 
     </div>
@@ -310,10 +309,32 @@
     <span class="toggle-line toggle-line-last"></span>
   </div>
 
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
   <aside class="sidebar">
     <div class="sidebar-inner">
-    <!--播放器-->   
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=4916164702&auto=0&height=66"></iframe>
+    <!--网易云-->   
+    <meting-js
+	    server="netease"
+	    type="playlist"
+      fixed="false"
+      list-folded="true"
+      mutex="true"
+	    id="4916164702">
+    </meting-js>
+      
+    <!--
+    <meting-js
+      auto="https://y.qq.com/n/yqq/playlist/1790504159.html#stat=y_new.playlist.pic_click">
+    </meting-js>
+
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=463352828&auto=0&height=66"></iframe>
+    -->
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">

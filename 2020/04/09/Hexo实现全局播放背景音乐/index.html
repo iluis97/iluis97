@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200409025115529.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020040902523955.png">
 <meta property="article:published_time" content="2020-04-08T17:56:35.000Z">
-<meta property="article:modified_time" content="2020-04-08T18:57:26.511Z">
+<meta property="article:modified_time" content="2020-04-08T19:25:00.321Z">
 <meta property="article:author" content="iluis">
 <meta property="article:tag" content="Hexo 音乐">
 <meta name="twitter:card" content="summary">
@@ -100,6 +100,7 @@
 </head>  
   
 <body itemscope itemtype="http://schema.org/WebPage">
+  
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -154,11 +155,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-playlist">
-
-    <a href="/playlist/" rel="section"><i class="fa fa-fw fa-music"></i>歌单</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -250,7 +246,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-09 01:56:35 / 修改时间：02:57:26" itemprop="dateCreated datePublished" datetime="2020-04-09T01:56:35+08:00">2020-04-09</time>
+              <time title="创建时间：2020-04-09 01:56:35 / 修改时间：03:25:00" itemprop="dateCreated datePublished" datetime="2020-04-09T01:56:35+08:00">2020-04-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,14 +293,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -371,15 +367,23 @@
 <ul>
 <li>打开我们主题文件：<code>themes\next\layout\_macro\sidebar.swig</code>找到<code>sidebar-inner</code>，复制下面代码粘贴到此<code>&lt;div&gt;</code>标签后即可。</li>
 </ul>
+<blockquote>
+<p>经测试：此方式，有时会失效，留作研究。【不推荐】</p>
+</blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar-inner"</span>&gt;</span><br><span class="line">    &lt;!-- <span class="built_in">require</span> APlayer --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;!-- require MetingJS--&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>npm/meting@<span class="number">1.2</span>/dist/Meting.min.js<span class="string">"&gt;&lt;/script&gt; </span></span><br><span class="line"><span class="string">    &lt;!--网易云--&gt;   </span></span><br><span class="line"><span class="string">    &lt;meting-js</span></span><br><span class="line"><span class="string">	    server="</span>netease<span class="string">"</span></span><br><span class="line"><span class="string">	    type="</span>playlist<span class="string">" </span></span><br><span class="line"><span class="string">		mini="</span><span class="literal">false</span><span class="string">"</span></span><br><span class="line"><span class="string">      	list-folded="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">      	mutex="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">	    id="</span><span class="number">4916164702</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;/meting-js&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用此方法成功实现 【推荐】</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sidebar-inner"</span>&gt;</span><br><span class="line">&lt;!-- <span class="built_in">require</span> APlayer --&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;!-- require MetingJS--&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script src="https:/</span><span class="regexp">/cdn.jsdelivr.net/</span>npm/meting@<span class="number">1.2</span>/dist/Meting.min.js<span class="string">"&gt;&lt;/script&gt; </span></span><br><span class="line"><span class="string">    &lt;!--网易云--&gt;   </span></span><br><span class="line"><span class="string">    &lt;div class="</span>aplayer<span class="string">" </span></span><br><span class="line"><span class="string">      data-id="</span><span class="number">4916164702</span><span class="string">" </span></span><br><span class="line"><span class="string">      data-server="</span>netease<span class="string">" </span></span><br><span class="line"><span class="string">      data-type="</span>playlist<span class="string">" </span></span><br><span class="line"><span class="string">      data-fixed="</span><span class="literal">false</span><span class="string">" </span></span><br><span class="line"><span class="string">      data-autoplay="</span><span class="literal">false</span><span class="string">" </span></span><br><span class="line"><span class="string">      data-list-folded="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">      data-mutex="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">      data-order="</span>list<span class="string">" </span></span><br><span class="line"><span class="string">      data-volume="</span><span class="number">0.4</span><span class="string">" </span></span><br><span class="line">      data-theme="#FADFA3" </span><br><span class="line">      date-preload=<span class="string">"auto"</span> &gt; </span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>属性</strong></p>
 <ul>
 <li>sever：服务器，填写网易云</li>
 <li>type：播放列表</li>
-<li>mini：mini模式</li>
 <li>list-folded：展开播放别表</li>
 <li>mutex：避免多个插件同时播放</li>
+<li>volume：音量</li>
 <li>id：网易云歌单id，打开我们的歌单，网址最后一串数字就是。</li>
 </ul>
 <p>例如：<code>https://music.163.com/#/my/m/music/playlist?id=4916164702</code></p>
@@ -440,7 +444,7 @@
   <p><span>本文标题:</span><a href="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/">Hexo + Next 主题实现全局播放背景音乐</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 iluis 的个人博客">iluis</a></p>
   <p><span>发布时间:</span>2020年04月09日 - 01:04</p>
-  <p><span>最后更新:</span>2020年04月09日 - 02:04</p>
+  <p><span>最后更新:</span>2020年04月09日 - 03:04</p>
   <p><span>原始链接:</span><a href="/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/" title="Hexo + Next 主题实现全局播放背景音乐">https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://iluis.gitee.io/2020/04/09/Hexo%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E6%92%AD%E6%94%BE%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90/"  aria-label="复制成功！"></i></span>
   </p>
@@ -533,14 +537,19 @@
     <!-- require MetingJS-->
     <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script> 
     <!--网易云-->   
-    <meting-js
-	    server="netease"
-	    type="playlist"
-      fixed="false"
-      list-folded="true"
-      mutex="true"
-	    id="4916164702">
-    </meting-js>
+    <div class="aplayer" 
+      data-id="4916164702" 
+      data-server="netease" 
+      data-type="playlist" 
+      data-fixed="false" 
+      data-autoplay="false" 
+      data-list-folded="true"
+      data-mutex="true"
+      data-order="list" 
+      data-volume="0.4" 
+      data-theme="#FADFA3" 
+      date-preload="auto" > 
+    </div>
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -685,13 +694,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
 
 <!-- 新增访客统计代码 -->
@@ -710,7 +719,7 @@
     <!--
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      本站博客共 <span class="post-count">8.5k</span> 字
+      本站博客共 <span class="post-count">8.7k</span> 字
     </span>
     -->
 </div>

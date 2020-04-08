@@ -94,6 +94,7 @@
 </head>  
   
 <body itemscope itemtype="http://schema.org/WebPage">
+  
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -148,11 +149,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-playlist">
-
-    <a href="/playlist/" rel="section"><i class="fa fa-fw fa-music"></i>歌单</a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -457,14 +453,19 @@
     <!-- require MetingJS-->
     <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script> 
     <!--网易云-->   
-    <meting-js
-	    server="netease"
-	    type="playlist"
-      fixed="false"
-      list-folded="true"
-      mutex="true"
-	    id="4916164702">
-    </meting-js>
+    <div class="aplayer" 
+      data-id="4916164702" 
+      data-server="netease" 
+      data-type="playlist" 
+      data-fixed="false" 
+      data-autoplay="false" 
+      data-list-folded="true"
+      data-mutex="true"
+      data-order="list" 
+      data-volume="0.4" 
+      data-theme="#FADFA3" 
+      date-preload="auto" > 
+    </div>
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -609,13 +610,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
 
 <!-- 新增访客统计代码 -->
@@ -634,7 +635,7 @@
     <!--
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      本站博客共 <span class="post-count">8.5k</span> 字
+      本站博客共 <span class="post-count">8.7k</span> 字
     </span>
     -->
 </div>
